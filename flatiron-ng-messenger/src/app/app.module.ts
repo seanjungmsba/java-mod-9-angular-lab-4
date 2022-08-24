@@ -22,6 +22,7 @@ import { LoggingService } from './logging.service';
 import { HttpClientModule } from "@angular/common/http";
 import { MessagingDataService } from './messaging-data.service';
 import { MessageCountComponent } from './sender-message/message-count/message-count.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -43,8 +44,9 @@ import { MessageCountComponent } from './sender-message/message-count/message-co
     HighlightDirective,
     MessageCountComponent
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
   providers: [LoggingService, MessagingDataService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
