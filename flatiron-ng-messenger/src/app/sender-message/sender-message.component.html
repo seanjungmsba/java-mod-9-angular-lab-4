@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-1 p-3">
+
+      <!-- ngClass
+      ngClass allows us to specify a conditional expression
+      and assign a CSS class based on the value of that expression. -->
+      <span
+        class="badge"
+        [ngClass]="message.sender.isOnline ? 'bg-primary' : 'bg-secondary'"
+      >
+        {{message.sender.firstName[0]}}
+      </span>
+
+      <!-- ngStyle:
+      ngStyle lets you assign actual CSS styles instead of assigning CSS classes.
+      This is most commonly done by creating a function in your component's controller to
+      return a list of styles on whatever conditions are appropriate for your use case. -->
+      <!-- <span
+        class="badge"
+        [ngStyle]= "getCurrentStyles()"
+      >
+        {{message.sender.firstName[0]}}
+      </span> -->
+
+    </div>
+    <div class="col-8 p-3 border rounded-5">
+
+      <span
+        [ngClass]= "message.sender.isOnline ? 'fw-bold' : 'fw-light'"
+      >
+      {{message.text}}
+    </span>
+
+    </div>
+  </div>
+</div>
