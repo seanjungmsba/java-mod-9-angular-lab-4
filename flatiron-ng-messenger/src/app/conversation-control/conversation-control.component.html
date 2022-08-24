@@ -27,8 +27,8 @@
     </div>
     <div class="col-3">
       <div class="float-end">
-        <button class="btn btn-primary" [routerLink]="['/contactList']">
-          <!-- adding the routerLink directive here -->
+        <button class="btn btn-primary" (click)="onNewMessage()">
+          <!-- Replace the [routerLink] directive with a (click) directive -->
           New Message
         </button>
       </div>
