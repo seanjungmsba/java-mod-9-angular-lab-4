@@ -7,6 +7,12 @@ import { User } from 'src/user.model';
   styleUrls: ['./contact-list-component.component.css'],
 })
 export class ContactListComponentComponent implements OnInit {
+
+  /*
+  == parent component ==
+  referring back to contact-list-component.html,
+  each user in users will be assigned back to [user] in a child component
+  */
   users: User[] = [
     { firstName: 'Aurelie' },
     { firstName: 'James' },
