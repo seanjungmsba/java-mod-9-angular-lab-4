@@ -6,21 +6,20 @@
           class="btn btn-primary dropdown-toggle"
           type="button"
           data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
+          aria-expanded="false">
           Conversation
         </button>
         <ul class="dropdown-menu">
+          <!-- for each convesation in conversation list -->
           <li *ngFor="let conversation of conversations">
             <a class="dropdown-item" href="#">
-              <span
-                *ngFor="
-                  let user of conversation.users;
-                  let isLastConversation = last
-                "
-              >
+              <!-- for each user in a conversation -->
+              <span *ngFor= "let user of conversation.users;
+                             let isLastConversation = last">
+                <!-- display user's first name -->
                 {{ user.firstName }}
-                <span *ngIf="!isLastConversation">, </span>
+                <!-- while user is not the last one in the conversation, append it with comma -->
+                <span *ngIf= "!isLastConversation">,</span>
               </span>
             </a>
           </li>
@@ -29,8 +28,8 @@
     </div>
     <div class="col-3">
       <div class="float-end">
+        <!-- adding the routerLink directive here -->
         <button class="btn btn-primary" (click)="onNewMessage()">
-          <!-- adding the routerLink directive here -->
           New Message
         </button>
       </div>

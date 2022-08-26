@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./conversation-control-component.component.css'],
 })
 export class ConversationControlComponentComponent implements OnInit {
+
+  // defining list of Conversation objects
   conversations: Conversation[] = [
     {
       id: 1,
@@ -35,10 +37,12 @@ export class ConversationControlComponentComponent implements OnInit {
     },
   ];
 
+  /* injecting Router dependency */
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
+  // navigate to localhost:4200/contactList when onNewMessage() from the template is clicked
   onNewMessage() {
     this.router.navigate(['contactList']);
   }
