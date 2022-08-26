@@ -8,8 +8,10 @@ import { MessagingDataService } from '../messaging-data.service';
   styleUrls: ['./header-component.component.css'],
 })
 export class HeaderComponentComponent implements OnInit {
+
+  /* setting activeUser as the header of the page, displaying 'Hello, {{activeUser.firstName}}' */
   activeUser: User = {
-    firstName: 'Maria',
+    firstName: 'Sean',
     isOnline: true,
   };
 
