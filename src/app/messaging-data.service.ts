@@ -54,6 +54,7 @@ export class MessagingDataService {
     }
   */
   getUserMessages() {
+    // only happens once
     this.httpClient
       .get<Message[]>('http://localhost:8080/api/get-user-messages')
       .subscribe((messages: Message[]) => {
