@@ -19,6 +19,8 @@ export class ConversationThreadComponentComponent implements OnInit {
   ngOnInit(): void {
     this.senderMessages = this.messagingSvce.getSenderMessages();
     this.userMessages = this.messagingSvce.getUserMessages();
+    // userMessagesChanged is an event emitter
+    // everytime there is a new value in 'userMessagesChanged', callback function is called
     this.messagingSvce.userMessagesChanged.subscribe((messages: Message[]) => {
       console.log('********** messages have changed');
       this.userMessages = messages; // store results into `userMessages` variable
