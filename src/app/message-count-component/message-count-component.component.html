@@ -1,1 +1,10 @@
-<label for="messageCount">Total message(s) : {{ sentMessageCount }}</label>
+<!-- When used together with the <label> element, the for attribute specifies which form element a label is bound to. -->
+<label for="messageCount">
+  <!-- using if-else to determine if it is displayed as either message or messages -->
+  <div *ngIf="areMultipleMessages(); else singleMessage">
+    Total messages : {{ sentMessageCount }}
+  </div>
+  <ng-template #singleMessage>
+    Total message : {{ sentMessageCount }}
+  </ng-template>
+</label>
