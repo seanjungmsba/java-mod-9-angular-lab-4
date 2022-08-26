@@ -7,6 +7,8 @@ import { Message } from 'src/message.model';
   styleUrls: ['./sender-message-component.component.css'],
 })
 export class SenderMessageComponentComponent implements OnInit {
+
+  // message is the child component
   @Input() message: Message = {
     sender: { firstName: 'Ludovic' },
     text: 'Message from Ludovic',
@@ -18,10 +20,15 @@ export class SenderMessageComponentComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /*
+  // ngStyle way to format the template
+  // in actual template, ngClass is used
   getCurrentStyles() {
     let currentStyles = {
       'background-color': this.message.sender.isOnline ? 'blue' : 'red',
     };
     return currentStyles;
   }
+  */
+
 }
