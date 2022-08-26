@@ -1,21 +1,27 @@
-# Lab 4
+# NgMessenger
 
-## Instructions
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
 
-Create the functionality to delete a message from the user's history by adding a
-delete button next to each message in the user message component.
+## Development server
 
-Hints:
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-1. This will require a new endpoint to remove a specific message from the
-   `userMessages` collection in your backend
-2. You will need to update the `user-message-component.component.ts` controller
-   and the `user-message-component.component.html` view in order to add the
-   "cancel" button
-3. Take advantage of the "cancel" functionality in your cypress test to "cancel"
-   the message after you've validated that it was sent successfully.
+## Code scaffolding
 
-> Note: without this enhancement, the cypress test we wrote is only meaningful
-> the first time around, since every time after that, it will continue to find
-> the `testMessage` in the conversation thread, since that message would have
-> been there from the previous run of the test anyway.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
