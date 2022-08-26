@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-10 p-3">
+      <!-- whatever the user enters here will be assigned to messageString variable -->
       <input
         name="user-message-input"
         type="input"
@@ -11,6 +12,7 @@
     </div>
     <div class="col-2 p-3">
       <div class="float-end">
+        <!-- when user clicks, it will create user and add it to the server via MessagingDataService -->
         <button class="btn btn-primary" (click)="onSendMessage()">Send</button>
       </div>
     </div>
