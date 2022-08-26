@@ -17,6 +17,7 @@ export class MessagingDataService {
   userMessagesChanged = new EventEmitter<Message[]>();
   senderMessagesChanged = new EventEmitter<Message[]>();
 
+  /* dependency injection */
   constructor(
     private loggingSvce: LoggingService,
     private httpClient: HttpClient
@@ -24,6 +25,14 @@ export class MessagingDataService {
     loggingSvce.log('Messaging Data Service constructor completed');
   }
 
+  /* return sender messages
+    ===== BACKEND-LOGIC FOR GETTING SENDER MESSAGE =====
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/api/get-sender-messages")
+    public List<Message> getSenderMessages() {
+        return senderMessages;
+    }
+  */
   getSenderMessages() {
     this.httpClient
       .get<Message[]>('http://localhost:8080/api/get-sender-messages')
@@ -35,6 +44,14 @@ export class MessagingDataService {
     return this.senderMessages.slice();
   }
 
+  /* return user messages
+    ===== BACKEND-LOGIC FOR GETTING USER MESSAGE =====
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/api/get-user-messages")
+    public List<Message> getUserMessages() {
+        return userMessages;
+    }
+  */
   getUserMessages() {
     this.httpClient
       .get<Message[]>('http://localhost:8080/api/get-user-messages')
@@ -46,6 +63,15 @@ export class MessagingDataService {
     return this.userMessages.slice();
   }
 
+  /* add user messages
+    ===== BACKEND-LOGIC FOR ADDING USER MESSAGE =====
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/api/add-user-message")
+    public List<Message> addUserMessage(@RequestBody Message newMessage) {
+        userMessages.add(newMessage);
+        return userMessages;
+    }
+  */
   addUserMessage(newMessage: Message) {
     this.httpClient
       .post<Message[]>('http://localhost:8080/api/add-user-message', newMessage)
@@ -58,10 +84,19 @@ export class MessagingDataService {
     this.userMessagesChanged.emit(this.userMessages.slice());
   }
 
+  /* delete user messages
+    ===== BACKEND-LOGIC FOR DELETING USER MESSAGE =====
+    @CrossOrigin(origins = "http://localhost:4200")
+    @DeleteMapping("/api/conversations/{conversationId}/{sequenceId}")
+    public List<Message> DeleteUserMessage(@PathVariable long conversationId, @PathVariable long sequenceId) {
+      userMessages.removeIf(message -> (message.conversationId == conversationId && message.sequenceNumber == sequenceId));
+      return this.userMessages;
+    }
+    =================================================
+  */
   deleteUserMessage(message: Message) {
     const convID = message.conversationId;
     const sequenceNumber = message.sequenceNumber;
-
     this.httpClient
       .delete<Message[]>(
         `http://localhost:8080/api/conversations/${convID}/${sequenceNumber}`
@@ -72,5 +107,5 @@ export class MessagingDataService {
         this.userMessagesChanged.emit(this.userMessages);
       });
   }
-  
+
 }
