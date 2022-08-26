@@ -8,6 +8,7 @@ import { User } from 'src/user.model';
   providedIn: 'root',
 })
 export class MessagingDataService {
+
   private senderMessages: Message[] = [];
   public sender: User;
 
@@ -41,7 +42,7 @@ export class MessagingDataService {
         this.senderMessages = messages;
         this.senderMessagesChanged.emit(this.senderMessages);
       });
-    return this.senderMessages.slice();
+    return this.senderMessages.slice(); // store results into `senderMessages` variable
   }
 
   /* return user messages

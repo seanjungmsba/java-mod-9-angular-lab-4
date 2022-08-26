@@ -8,9 +8,12 @@ import { MessagingDataService } from '../messaging-data.service';
   styleUrls: ['./conversation-thread-component.component.css'],
 })
 export class ConversationThreadComponentComponent implements OnInit {
+
+  // initialize both senderMessages and userMessages as the empty Message array
   senderMessages: Message[];
   userMessages: Message[];
 
+  /* inject MessagingDataService */
   constructor(private messagingSvce: MessagingDataService) {}
 
   ngOnInit(): void {
@@ -18,7 +21,7 @@ export class ConversationThreadComponentComponent implements OnInit {
     this.userMessages = this.messagingSvce.getUserMessages();
     this.messagingSvce.userMessagesChanged.subscribe((messages: Message[]) => {
       console.log('********** messages have changed');
-      this.userMessages = messages;
+      this.userMessages = messages; // store results into `userMessages` variable
     });
   }
 }
